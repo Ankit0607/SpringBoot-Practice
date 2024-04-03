@@ -20,4 +20,7 @@ public interface userRepository extends CrudRepository<user, Integer>{
 	
 	@Query("select u from user u where u.name =:n and u.city =:c")
 	public List<user>findUserByNameAndCity(@Param("n") String name, @Param("c") String city);
+	
+	@Query(value = "select * from user", nativeQuery = true)
+	public List<user>getAllUsers();
 }
